@@ -27,7 +27,7 @@ ansible-docker-nginx/
 
 3. Запустить playbook:
    ```bash
-   ansible-playbook -i inventory.ini playbook.yml
+   ansible-playbook -i inventory.ini playbook.yml --ask-become-pass
    ```
 
 4. Открыть в браузере `http://<server-ip>` и увидеть страницу:

@@ -35,10 +35,3 @@ ansible-docker-nginx/
    Hello from Ansible automated deployment!
    ```
 
----
-
-## ✅ Что показывает проект работодателю?
-- Навыки работы с **Ansible**
-- Умение структурировать проект (roles, inventory, vars)
-- Автоматизацию установки софта (Docker, Nginx)
-- Мини-деплой приложения

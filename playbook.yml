@@ -1,0 +1,7 @@
+- name: Setup web server with Docker and Nginx
+  hosts: webservers
+  become: yes
+  roles:
+    - docker
+    - nginx
+    - app

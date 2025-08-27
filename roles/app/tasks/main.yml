@@ -1,0 +1,36 @@
+- name: Create app directory
+  file:
+    path: /var/www/app
+    state: directory
+
+- name: Copy index.html
+  copy:
+    dest: /var/www/app/index.html
+    content: "<h1>Hello from Ansible automated deployment!</h1>"
+
+- name: Configure Nginx site
+  copy:
+    dest: /etc/nginx/sites-available/app
+    content: |
+      server {
+        listen 80;
+        root /var/www/app;
+        index index.html;
+      }
+  notify: Reload nginx
+
+- name: Enable site
+  file:
+    src: /etc/nginx/sites-available/app
+    dest: /etc/nginx/sites-enabled/app
+    state: link
+
+- name: Remove default site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
